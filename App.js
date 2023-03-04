@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import APIKey from "./Config";
 import {
   StyleSheet,
   Text,
@@ -31,7 +32,7 @@ export default function App() {
   const getLocalisationFromInput = async () => {
 
     try {
-      const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${textInput}&limit=1&appid=00ffbc1212e68b1e1750ccd6674c9081`,
+      const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${textInput}&limit=1&appid=${APIKey}`,
         {
           method: "GET",
           headers: {
@@ -96,10 +97,8 @@ ci
   const getMeteoFromApiAsync = async () => {
     try {
       const response = await fetch(
-        // "http://api.openweathermap.org/data/2.5/weather?q=Nice,fr&lang=fr&units=metric&APPID=00ffbc1212e68b1e1750ccd6674c9081",
-        // `http://api.openweathermap.org/data/2.5/weather?q=${textInput},fr&lang=fr&units=metric&APPID=00ffbc1212e68b1e1750ccd6674c9081`,
-        // `http://api.openweathermap.org/data/2.5/weather?lat=${JSON.stringify(lat)}&lon=${JSON.stringify(lon)}&lang=fr&units=metric&appid=00ffbc1212e68b1e1750ccd6674c9081`,
-        `http://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&lang=fr&units=metric&appid=00ffbc1212e68b1e1750ccd6674c9081`,
+       
+        `http://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&lang=fr&units=metric&appid=${APIKey}`,
 
         {
           method: "GET",
@@ -124,10 +123,7 @@ ci
   const getForecastFromApiAsync = async () => {
     try {
       const response = await fetch(
-        // "http://api.openweathermap.org/data/2.5/weather?q=Nice,fr&lang=fr&units=metric&APPID=00ffbc1212e68b1e1750ccd6674c9081",
-        // `http://api.openweathermap.org/data/2.5/weather?q=${textInput},fr&lang=fr&units=metric&APPID=00ffbc1212e68b1e1750ccd6674c9081`,
-        // `http://api.openweathermap.org/data/2.5/weather?lat=${JSON.stringify(lat)}&lon=${JSON.stringify(lon)}&lang=fr&units=metric&appid=00ffbc1212e68b1e1750ccd6674c9081`,
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${location.coords.latitude}&lon=${location.coords.longitude}&lang=fr&units=metric&appid=00ffbc1212e68b1e1750ccd6674c9081`,
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${location.coords.latitude}&lon=${location.coords.longitude}&lang=fr&units=metric&appid=${APIKey}`,
 
         {
           method: "GET",
